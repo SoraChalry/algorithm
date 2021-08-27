@@ -11,4 +11,40 @@ sys.stdin = open('input.txt')
 
 T = int(input())
 for idx in range(T):
-    pass
+    N = int(input())
+    N_list = [list(input()) for _ in range(N)]
+    result = 'NO'
+
+    rb_count = 0
+    rt_count = 0
+    for i in range(N):
+        # 행이 빙고일때
+        if N_list[i].count('o') >= 5 :
+            result = 'YES'
+            break
+        # 오른쪽 아래 대각선이 빙고일때
+        if N_list[i][i] == 'o':
+            rb_count += 1
+        # 오른쪽 위 대각선이 빙고일때
+        if N_list[i][N-i-1] == 'o':
+            rt_count += 1
+        col_count = 0
+        for j in range(N):
+            if N_list[j][i] == 'o':
+                col_count += 1
+            if col_count >= 5:
+                result = 'YES'
+                break
+        if rb_count == 5:
+            result = 'YES'
+            break
+        if rt_count == 5:
+            result = 'YES'
+            break
+    print('#{} {}'.format(idx+1, result))
+
+    ############################################################
+
+    arr = [input() for _ in range(N)]
+
+
