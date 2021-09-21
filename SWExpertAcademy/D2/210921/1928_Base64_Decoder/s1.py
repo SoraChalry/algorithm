@@ -12,6 +12,8 @@ sys.stdin = open('input.txt')
 [풀이과정]
  1. 24비트 버퍼에 1byte씩 3byte의 문자를 집어넣지만 Encoding과정에서 6비트씩 잘라 읽으므로 4개의 문자가 나온다. input:3, output:4 => input:4, output:3
  2. Encoding된 문자를 4개씩 짝지어서 비트로 바꾼 후 8비트씩 잘라서 decoding 하기
+ 
+### 메모리사용:58,192kb, 실행시간:133ms, 코드길이:1,314
 '''
 T = int(input())
 for tc in range(1,T+1):
