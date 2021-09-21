@@ -4,7 +4,7 @@ sys.stdin = open('input.txt')
 T = int(input())
 for idx in range(T) :
     N, M, K = map(int, input().split())
-    N_list = list(map(int, input().split()))
+    N_list = list(map(int, input().split()))   # [2 1],  3 1
     N_list.sort()
     bread = 0
     result = 1
@@ -18,9 +18,7 @@ for idx in range(T) :
         for j in N_list :
             if i == j :
                 bread -= 1
-                if bread >= 0 :
-                    result = 1
-                else :
+                if bread < 0 :
                     result = 0
                     break
     if result :
